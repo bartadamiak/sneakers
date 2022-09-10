@@ -54,21 +54,32 @@ amountBtn.forEach(element => {
         if(element.classList.contains('plus')) {
             shoesNumber++;
             number.innerHTML = shoesNumber;
-            purchaseAmount.innerHTML = shoesNumber
+            purchaseAmount.innerHTML = shoesNumber;
+            finalPrice.innerHTML = "$" + (shoesNumber * 125.00);
         }
 
         if(element.classList.contains('minus') && shoesNumber != 0) {
             shoesNumber--;
             number.innerHTML = shoesNumber;
-            purchaseAmount.innerHTML = shoesNumber
+            purchaseAmount.innerHTML = shoesNumber;
+            finalPrice.innerHTML = "$" + (shoesNumber * 125.00);
         }
     })
 });
 
 cartBtn.addEventListener('click', function() {
-    cart.classList.remove('hide');
+    
+    if (shoesNumber > 0) {
+        cart.classList.remove('hide');
+    }
+    
+    
 })
 
 remove.addEventListener('click', function() {
     cart.classList.add('hide');
+    shoesNumber = 0;
+    purchaseAmount.innerHTML = 0;
+    number.innerHTML = 0;
+    finalPrice.innerHTML = "";
 })
