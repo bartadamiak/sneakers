@@ -17,8 +17,22 @@
 .lightbox-main-container {
     width: 100%;
     text-align: center;
+    
 }
 
+.close-lightbox {
+    width: 24%;
+    margin: 0 auto;
+    position: relative;
+    text-align: right;
+}
+
+.close-sign {
+    color: hsl(26, 100%, 55%);
+    font-weight: 900;
+    font-size: 27px;
+    cursor: pointer;
+}
 
 .lightbox-main-photos {
     width: 100%;
@@ -44,7 +58,7 @@
     opacity: 0.3;
 }
 
-.choosen {
+.lightbox-choosen {
     opacity: 0.3;
     border: 4px solid hsl(26, 100%, 55%);
 }

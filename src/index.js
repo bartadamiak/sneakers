@@ -1,6 +1,10 @@
 
 const mainPhotos = document.querySelector('.main-photos');
 
+const lightboxMain = document.querySelector('.lightbox-main-photos');
+
+const lightboxSmall = document.querySelectorAll('.lightbox-small-photos img');
+
 const smallPhotos = document.querySelectorAll('.small-photos img');
 
 const number = document.querySelector('.number');
@@ -24,38 +28,60 @@ const basketAmount = document.querySelector('.basket-icon-amount');
 
 const lightBox = document.querySelector('.lightbox');
 
-mainPhotos.addEventListener('click', function() {
-    lightBox.classList.remove('hide')
+const closeSign = document.querySelector('.close-sign');
+
+closeSign.addEventListener('click', function() {
+    lightBox.classList.add('hide')
 })
 
-smallPhotos.forEach(element => {
-    element.addEventListener('click', function (e) {
-        e.preventDefault();
+mainPhotos.addEventListener('click', function() {
+    lightBox.classList.remove('hide');
+    let selectedPhoto = document.querySelector('.main-photos').src;
+    selectedPhoto = selectedPhoto.split("images");
+    lightboxMain.src = "images" + selectedPhoto[1];
 
-        document.querySelector('.choosen').classList.remove('choosen')
-        element.classList.add('choosen');
-
-        let src = element.src
-
-        if (src.includes('1')) {
-            mainPhotos.src = 'images/1.jpg'
+    for(let i = 0; i < smallPhotos.length; i++) {
+        if (smallPhotos[i].classList.contains('choosen')) {
+            let result = i;
+            lightboxSmall[result].classList.add('choosen')
         }
+      
+    }
 
-        if (src.includes('2')) {
-            mainPhotos.src = 'images/2.jpg'
-        }
+})
 
-        if (src.includes('3')) {
-            mainPhotos.src = 'images/3.jpg'
-        }
 
-        if (src.includes('4')) {
-            mainPhotos.src = 'images/4.jpg'
-        }
+function changePhoto(small, main) {
+    small.forEach(element => {
+        element.addEventListener('click', function (e) {
+            e.preventDefault();
+    
+            document.querySelector('.choosen').classList.remove('choosen')
+            element.classList.add('choosen');
+    
+            let src = element.src
+    
+            if (src.includes('1')) {
+                main.src = 'images/1.jpg'
+            }
+    
+            if (src.includes('2')) {
+                main.src = 'images/2.jpg'
+            }
+    
+            if (src.includes('3')) {
+                main.src = 'images/3.jpg'
+            }
+    
+            if (src.includes('4')) {
+                main.src = 'images/4.jpg'
+            }
+        })
+    });
+}
 
-    })
-});
-
+changePhoto(smallPhotos, mainPhotos);
+changePhoto(lightboxSmall, lightboxMain);
 
 let shoesNumber = number.innerHTML;
 shoesNumber = parseInt(shoesNumber);
@@ -92,11 +118,6 @@ basketIcon.addEventListener('click', function () {
     if(shoesNumber > 0) {
         cart.classList.toggle('hide');
     }
-
-    
-
-
-
 })
 
 remove.addEventListener('click', function () {
