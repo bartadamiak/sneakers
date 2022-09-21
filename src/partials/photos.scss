@@ -1,3 +1,5 @@
+@use 'partials/info.scss';
+
 .main-section {
     width: 100%;
     max-width: 1200px;
@@ -35,7 +37,10 @@
     opacity: 0.3;
 }
 
+
+
 .choosen {
     opacity: 0.3;
     border: 4px solid hsl(26, 100%, 55%);
 }
+

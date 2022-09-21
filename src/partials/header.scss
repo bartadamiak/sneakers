@@ -1,6 +1,6 @@
 .header {
     position: relative;
-    width: 100%;
+    width: 90%;
     max-width: 1200px;
     margin: 0 auto;
     padding-top: 20px;
@@ -66,6 +66,10 @@
     justify-content: flex-end;
 }
 
+.remove-icon {
+    cursor: pointer;
+}
+
 .checkout-btn {
     width: 100%;
     border-radius: 10px;
@@ -121,8 +125,13 @@
     align-self: center;
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-end;
     position: relative;
+}
+
+.basket-icon {
+    cursor: pointer;
+    margin-right: 20px;
 }
 
 .basket-icon-amount {
@@ -134,7 +143,7 @@
     text-align: center;
     position: absolute;
     top: 0;
-    left: 10px;
+    left:30px;
 
 }
 
@@ -149,6 +158,24 @@
     border: 2px solid hsl(26, 100%, 55%);
 }
 
-.basket-icon {
-    cursor: pointer;
+.hamburger {
+    display: none;
+}
+
+
+@media (max-width:966px) {
+    .header {
+        grid-template-areas: "hamburger  logo logo . . . . . . . . icons";
+    }
+
+    .navigation {
+        display: none;
+    }
+
+    .hamburger {
+        grid-area: hamburger;
+        display: inline-block;
+        align-self: center;
+    }
+
 }

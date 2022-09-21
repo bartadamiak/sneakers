@@ -55,8 +55,12 @@ function changePhoto(small, main) {
     small.forEach(element => {
         element.addEventListener('click', function (e) {
             e.preventDefault();
-    
-            document.querySelector('.choosen').classList.remove('choosen')
+
+            let choosenNow = document.querySelectorAll('.choosen');
+            choosenNow.forEach(element => {
+                element.classList.remove('choosen')
+            });
+            
             element.classList.add('choosen');
     
             let src = element.src
