@@ -15,7 +15,8 @@
     position: absolute;
     right: 0;
     bottom: -190px;
-    width: 25%;
+    width: 90%;
+    max-width: 400px;
     z-index: 1;
     background-color: #ffffff;
     padding: 20px;
@@ -129,6 +130,10 @@
     position: relative;
 }
 
+.basket-container {
+    position: relative;
+}
+
 .basket-icon {
     cursor: pointer;
     margin-right: 20px;
@@ -142,8 +147,8 @@
     border-radius: 20px;
     text-align: center;
     position: absolute;
-    top: 0;
-    left:30px;
+    top: -10px;
+    left:10px;
 
 }
 

@@ -5,7 +5,8 @@
     max-width: 1200px;
     margin: 0 auto;
     padding-top: 100px;
-    padding-left: 40px;
+    padding-left: 40px; 
+    padding-bottom: 50px;
     display: grid;
     grid-template-columns: repeat(12, 1fr);
     grid-template-areas: "photos photos photos photos photos . info info info info info .";
@@ -45,6 +46,7 @@
 .info {
     grid-area: info;
     padding-top: 50px;
+    padding-bottom: 50px;
 }
 
 .pre-name {
